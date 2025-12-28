@@ -125,7 +125,6 @@
   <div class="card">
     <div class="inner">
 
-
 <script>
   atOptions = {
     'key' : 'b6e60c2319eb7e7338f440cbb61abf82',
@@ -136,8 +135,6 @@
   };
 </script>
 <script src="https://www.highperformanceformat.com/b6e60c2319eb7e7338f440cbb61abf82/invoke.js"></script>
-
-
 
       <h1>Withdraw Coins 🪙</h1>
       <p class="subtitle">
@@ -171,13 +168,11 @@
       </button>
 
       <p class="note">
-        Request WhatsApp chat me open hogi, jahan aap confirmation de sakte hain.  
+        Request WhatsApp chat me open hogi, jahan aap confirmation de sakte hain.
         Kripya galat UPI details na bheje.
       </p>
     </div>
 
-
-...
 <script>
   atOptions = {
     'key' : '01f25da68cbc3c53a8827ebe90ce9998',
@@ -188,7 +183,6 @@
   };
 </script>
 <script src="https://www.highperformanceformat.com/01f25da68cbc3c53a8827ebe90ce9998/invoke.js"></script>
-
 
   </div>
 
@@ -217,17 +211,20 @@
         return;
       }
 
-      // ***** YAHAN SE COINS TURANT MINUS HO RAHE HAIN *****
-      coins = coins - reqCoins;                         // local value update
-      localStorage.setItem('coins', coins.toString());  // storage me save
-      document.getElementById('coinsText').textContent = coins; // screen update
-      // ***** YAHAN TAK SIRF MINUS LOGIC ADD KIYA GAYA *****
+      // coins minus karna (jo pehle bhi tha, same rakha)
+      coins = coins - reqCoins;
+      localStorage.setItem('coins', coins.toString());
+      document.getElementById('coinsText').textContent = coins;
 
-      // WhatsApp click‑to‑chat link
+      // === YAHI NAYA PART HAI: tumhare number par WhatsApp chat + auto message ===
+      const phone = "917906328841"; // yahan apna WhatsApp number daalo, bina +, space
       const msg =
-        `Withdraw Request%0AUPI: ${encodeURIComponent(upi)}%0ACoins: ${encodeURIComponent(reqCoinsStr)}%0ATotal Coins in App: ${encodeURIComponent(coins)}`;
+        `Withdraw Request%0A` +
+        `UPI: ${encodeURIComponent(upi)}%0A` +
+        `Coins Request: ${encodeURIComponent(reqCoinsStr)}%0A` +
+        `Coins Balance: ${encodeURIComponent(coins.toString())}`;
 
-      const waUrl = `https://wa.me/qr/TTVA622K3RZFA1?text=${msg}`;
+      const waUrl = `https://wa.me/${phone}?text=${msg}`;  // official click‑to‑chat URL [web:231][web:253]
 
       window.open(waUrl, "_blank");
     }
